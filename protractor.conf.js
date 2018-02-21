@@ -20,8 +20,8 @@ exports.config = {
   },
   params: {
     user: {
-      email: 'hughleo@hotmail.com',
-      password: 'tester123'
+      email: '',
+      password: ''
     }
   },
   onPrepare() {
