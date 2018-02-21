@@ -1,6 +1,4 @@
-// Protractor configuration file, see link for more information
-// https://github.com/angular/protractor/blob/master/lib/config.ts
-
+const { browser } = require('protractor');
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
@@ -8,16 +6,23 @@ exports.config = {
   specs: [
     './e2e/**/*.e2e-spec.ts'
   ],
+  SELENIUM_PROMISE_MANAGER: true,
   capabilities: {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'https://angular2.realworld.io/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
     print: function() {}
+  },
+  params: {
+    user: {
+      email: 'hughleo@hotmail.com',
+      password: 'tester123'
+    }
   },
   onPrepare() {
     require('ts-node').register({
