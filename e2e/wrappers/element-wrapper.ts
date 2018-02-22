@@ -1,7 +1,5 @@
-import {browser, ExpectedConditions as EC, element} from 'protractor';
+import { browser, element } from 'protractor';
 import { ElementFinder } from 'protractor/built/element';
-import { ExpectedConditions } from 'protractor';
-import { Locator } from 'protractor/built/locators';
 
 export class ElementWrapper extends ElementFinder {
 
