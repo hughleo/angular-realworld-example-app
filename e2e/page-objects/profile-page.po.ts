@@ -1,5 +1,5 @@
-import { browser, element, by } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { element, by } from 'protractor';
+import { WaitConditions as WC } from '../wait-conditions';
 
 export class ProfilePage {
 
@@ -7,7 +7,7 @@ export class ProfilePage {
     private globalFeed = element(by.partialLinkText('Global Feed'));
 
     constructor() {
-        WaitConditions.waitForElementToDisplay(element(by.className('home-page')));
+        WC.waitForElementToDisplay(element(by.className('home-page')));
     }
 
     favoriteArticle(articleName: string): ProfilePage  {

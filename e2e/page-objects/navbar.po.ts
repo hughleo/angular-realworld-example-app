@@ -1,4 +1,4 @@
-import { browser, element, by } from 'protractor';
+import { element, by } from 'protractor';
 import { SignIn } from './sign-in.po';
 import { HomePage } from './home-page.po';
 import { EditorPage } from './editor-page.po';
@@ -6,11 +6,11 @@ import { Settings } from './settings.po';
 
 export class NavBar {
 
-    private home = element(by.css('a[href="#/"]'));
+    private home = element(by.css('a[href="/"]'));
     private signIn = element(by.partialLinkText('Sign in'));
-    private signUp = element(by.css('a[href="#/register"]'));
-    private settings = element(by.css('a[href="#/settings"]'));
-    private newArticle = element(by.css('a[href="#/editor"]'));
+    private signUp = element(by.css('a[href="/register"]'));
+    private settings = element(by.css('a[href="/settings"]'));
+    private newArticle = element(by.css('a[href="/editor"]'));
 
     goHome(): HomePage {
         this.home.click();

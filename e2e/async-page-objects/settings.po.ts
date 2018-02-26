@@ -1,20 +1,18 @@
-import { element, by, browser } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { element, by } from 'protractor';
+import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
 import { HomePage } from './home-page.po';
 import { ElementWrapper } from '../wrappers/element-wrapper';
 
 export class Settings {
 
-    private logout = element(by.css('button[class="btn btn-outline-danger"]'));
-    private page = element(by.className('settings-page'));
-    private lg = new ElementWrapper(element(by.css('button[class="btn btn-outline-danger"]')));
+    private logout = new ElementWrapper(element(by.id('logout')));
 
     constructor() {
-        WaitConditions.waitForElementToDisplay(this.page);
+        WC.waitForElementToDisplay(element(by.className('settings-page')));
     }
 
     async doLogout(): Promise<HomePage> {
-        await this.lg.jsClick();
+        await this.logout.jsClick();
         return new HomePage();
     }
 }

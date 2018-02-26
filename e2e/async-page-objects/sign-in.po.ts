@@ -1,5 +1,5 @@
-import { browser, element, by } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { element, by } from 'protractor';
+import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
 import { HomePage } from './home-page.po';
 import { User } from '../models/user';
 import { ElementWrapper } from '../wrappers/element-wrapper';
@@ -11,10 +11,10 @@ export class SignIn {
     private signInField = new ElementWrapper(element(by.partialButtonText('Sign in')));
 
     constructor() {
-        WaitConditions.waitForElementToDisplay(element(by.className('auth-page')));
+        WC.waitForElementToDisplay(element(by.className('auth-page')));
     }
 
-    async signIn(user: User) {
+    async signIn(user: User) : Promise<HomePage> {
         await this.emailField.sendKeys(user.email);
         await this.passwordField.sendKeys(user.password);
         await this.signInField.click();

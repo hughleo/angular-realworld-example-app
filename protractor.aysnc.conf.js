@@ -4,14 +4,14 @@ const { SpecReporter } = require('jasmine-spec-reporter');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './e2e/**/*.e2e-spec.ts'
+    './e2e/**/example.aysnc.e2e-spec.ts'
   ],
-  SELENIUM_PROMISE_MANAGER: true,
+  SELENIUM_PROMISE_MANAGER: false,
   capabilities: {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'https://angular2.realworld.io/',
+  baseUrl: 'http://localhost:4200',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

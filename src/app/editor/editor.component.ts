@@ -26,6 +26,7 @@ export class EditorComponent implements OnInit {
       title: '',
       description: '',
       body: '',
+      tagList: []
     });
     // Optional: subscribe to value changes on the form
     // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
@@ -78,5 +79,6 @@ export class EditorComponent implements OnInit {
 
   updateArticle(values: Object) {
     Object.assign(this.article, values);
+    if (!this.article.tagList) this.article.tagList = [];
   }
 }

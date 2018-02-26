@@ -1,5 +1,6 @@
 import { browser, element, by } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { YourFeed } from './your-feed.po';
+import { GlobalFeed } from './global-feed.po';
 
 export class HomePage {
 
@@ -11,8 +12,13 @@ export class HomePage {
         return new HomePage();
     }
 
-    switchToYourFeed<T>(c: { new(): T; }): T  {
+    switchToYourFeed(): YourFeed  {
         this.yourFeed.click();
-        return new c();
+        return new YourFeed();
+    }
+
+    switchToGlobalFeed(): GlobalFeed  {
+        this.globalFeed.click();
+        return new GlobalFeed();
     }
 }

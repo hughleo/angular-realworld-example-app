@@ -1,5 +1,7 @@
 import { browser, element, by } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { GlobalFeed } from '../page-objects/global-feed.po';
+import { YourFeed } from '../page-objects/your-feed.po';
 
 export class HomePage {
 
@@ -8,13 +10,23 @@ export class HomePage {
 
     async navigateTo() {
         await browser.get('/');
-        WaitConditions.waitForElementToDisplay(element(by.className('home-page')));
+        WC.waitForElementToDisplay(element(by.className('home-page')));
         return new HomePage();
     }
 
 
-    async switchToYourFeed<T>(c: { new(): T; }): Promise<T>  {
+    async switchFeed<T>(c: { new(): T; }): Promise<T>  {
         await this.yourFeed.click();
         return new c();
+    }
+
+    async switchToYourFeed(): Promise<YourFeed> {
+        this.yourFeed.click();
+        return new YourFeed();
+    }
+
+    async switchToGlobalFeed(): Promise<GlobalFeed>  {
+        this.globalFeed.click();
+        return new GlobalFeed();
     }
 }

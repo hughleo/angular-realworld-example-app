@@ -1,5 +1,5 @@
-import { browser, element, by } from 'protractor';
-import { WaitConditions } from '../wait-conditions';
+import { element, by } from 'protractor';
+import { WaitConditions as WC } from '../wait-conditions';
 import { HomePage } from './home-page.po';
 import { User } from '../models/user';
 
@@ -10,7 +10,7 @@ export class SignIn {
     private signInField = element(by.partialButtonText('Sign in'));
 
     constructor() {
-        WaitConditions.waitForElementToDisplay(element(by.className('auth-page')));
+        WC.waitForElementToDisplay(element(by.className('auth-page')));
     }
 
     signIn(user: User): HomePage {
