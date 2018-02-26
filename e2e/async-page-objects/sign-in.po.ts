@@ -14,7 +14,7 @@ export class SignIn {
         WC.waitForElementToDisplay(element(by.className('auth-page')));
     }
 
-    async signIn(user: User) : Promise<HomePage> {
+    async signIn(user: User): Promise<HomePage> {
         await this.emailField.sendKeys(user.email);
         await this.passwordField.sendKeys(user.password);
         await this.signInField.click();

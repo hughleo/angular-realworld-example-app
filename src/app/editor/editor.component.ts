@@ -79,6 +79,8 @@ export class EditorComponent implements OnInit {
 
   updateArticle(values: Object) {
     Object.assign(this.article, values);
-    if (!this.article.tagList) this.article.tagList = [];
+    if (!this.article.tagList) {
+      this.article.tagList = [];
+    }
   }
 }

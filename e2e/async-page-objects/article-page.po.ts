@@ -12,7 +12,6 @@ export class ArticlePage {
     private commentField = element(by.name('comment'));
     private articleContent = element(by.css('div[class="row article-content"]'));
     private comments = element.all(by.css('app-article-comment p[class="card-text"]'));
-    
 
     constructor() {
         WC.waitForElementToDisplay(element(by.className('article-page')));

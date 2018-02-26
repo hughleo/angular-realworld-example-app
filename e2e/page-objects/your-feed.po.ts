@@ -5,7 +5,4 @@ import { EditorPage } from './editor-page.po';
 import { ArticleBuilder } from '../models/article-builder';
 
 export class YourFeed {
-
-   
-    
 }

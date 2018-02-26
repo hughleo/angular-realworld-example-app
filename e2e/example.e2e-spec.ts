@@ -30,14 +30,12 @@ describe('example tests', () => {
     navbar.navigateToSettings().doLogout();
   });
 
-
-
   it('should add article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
     articlePage = editorPage.addArticle(articleObject);
     articlePage.getArticleContent().then((articleContent) => {
       expect(articleContent).toContain(articleObject.ArticleBody);
-    })
+    });
   });
 
   it('should add comment to article', () => {
@@ -46,18 +44,17 @@ describe('example tests', () => {
     articlePage.addComment('awesome article');
     articlePage.getFirstComment().then((comment) => {
       expect(comment.trim()).toBe('awesome article');
-    })
+    });
   });
 
-
-  fit('should add then delete article', () => {
+  it('should add then delete article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
     articlePage = editorPage.addArticle(articleObject);
     articlePage.deleteArticle();
     globalFeed = homePage.switchToGlobalFeed();
     globalFeed.isArticleDisplayed(articleObject.ArticleTitle).then((isDisplayed) => {
       expect(isDisplayed).toBe(false);
-    })
+    });
   });
 
   it('should add then edit article', () => {
@@ -68,6 +65,6 @@ describe('example tests', () => {
     editorPage.publishArticle();
     articlePage.getArticleContent().then((articleContent) => {
       expect(articleContent).toContain('newText');
-    })
+    });
   });
 });

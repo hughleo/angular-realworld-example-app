@@ -35,7 +35,7 @@ export class ArticlePage {
         this.postComment.click();
         return this;
     }
-    
+
     getFirstComment() {
         return this.comments.first().getText();
     }

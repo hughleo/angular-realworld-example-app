@@ -8,7 +8,6 @@ import { UserBuilder } from './models/user-builder';
 import { ElementWrapper } from './wrappers/element-wrapper';
 import { Settings } from './async-page-objects/settings.po';
 import { ArticleObject } from './models/article-object';
-import { concat } from 'rxjs/observable/concat';
 
 
 describe('End to end scenarios', () => {
@@ -57,8 +56,8 @@ describe('End to end scenarios', () => {
     await articlePage.editArticle();
     await editorPage.updateArticleContent('newText');
     await editorPage.publishArticle();
-    const articleContent = await articlePage.getArticleContent(); 
+    const articleContent = await articlePage.getArticleContent();
     expect(articleContent).toContain('newText');
   });
 
-  });
+});
