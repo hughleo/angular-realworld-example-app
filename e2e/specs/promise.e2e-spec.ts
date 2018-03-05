@@ -57,7 +57,7 @@ describe('example tests', () => {
      // add article as above
 
      // add call to add comment to article
-    
+
 
      // add call to get comment and check it's content (method is there
   });
@@ -68,7 +68,7 @@ describe('example tests', () => {
     // add article as above
 
     // delete the article -> this should take you to home page. add the method for this
-    
+
     // switch to global feed
     globalFeed = homePage.switchToGlobalFeed();
 
@@ -76,6 +76,6 @@ describe('example tests', () => {
   });
 
   xit('should add then edit article', () => {
-    
+
   });
 });

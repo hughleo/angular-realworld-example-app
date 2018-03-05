@@ -10,12 +10,12 @@ export class GlobalFeed {
     private comment = element(by.name('body'));
     private articleContent = element(by.css('div[class="row article-content"]'));
 
-    getArticle(title: string): ArticlePage {
+    async getArticle(title: string): Promise<ArticlePage> {
         element(by.xpath('//h2[.="' + title + '"]')).click();
-        return new ArticlePage();
+        return await new ArticlePage();
     }
 
-    isArticleDisplayed(title: string) {
-        return element(by.xpath('//h2[.="' + title + '"]')).isPresent();
+    async isArticleDisplayed(title: string) {
+        return await element(by.xpath('//h2[.="' + title + '"]')).isPresent();
     }
 }

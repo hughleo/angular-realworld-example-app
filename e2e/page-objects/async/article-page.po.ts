@@ -36,7 +36,7 @@ export class ArticlePage {
         return await this.comments.first().getText();
     }
     async getArticleContent() {
-        await browser.sleep(10000);
+        //await browser.sleep(10000);
         return await this.articleContent.getText();
     }
 }

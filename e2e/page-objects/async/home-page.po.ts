@@ -11,8 +11,8 @@ export class HomePage {
 
     async navigateTo() {
         await browser.get('/');
-        WC.waitForElementToDisplay(element(by.className('home-page')));
-        return new HomePage();
+        //WC.waitForElementToDisplay(element(by.className('home-page')));
+        //return new HomePage();
     }
 
     async clickYourFeed<T>(c: { new(): T; }): Promise<T> {

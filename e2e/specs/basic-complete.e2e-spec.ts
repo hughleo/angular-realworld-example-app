@@ -20,11 +20,10 @@ describe('example tests', () => {
   const password = browser.params.user.password;
 
   beforeEach(() => {
-    
     homePage = new HomePage();
     navbar = new NavBar();
     homePage.navigateTo();
-  })
+  });
 
   afterEach(() => {
     navbar.navigateToSettings().doLogout();

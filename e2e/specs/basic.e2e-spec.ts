@@ -23,18 +23,20 @@ describe('example tests', () => {
   });
 
 
-  it('should nagivate to create new article page', () => {
+  fit('should nagivate to create new article page', () => {
     homePage = new HomePage();
     const email = browser.params.user.email;
     const password = browser.params.user.password;
-    
+    console.log('test 1');
     navbar = new NavBar();
+    console.log('test 2');
     homePage.navigateTo();
     navbar.navigateToSignIn().signInWith(email, password);
+    console.log('test 3');
     editorPage = navbar.navigateToCreateNewArticle();
   });
 
-  it('should nagivate to create new article using user builder', () => { 
+  it('should nagivate to create new article using user builder', () => {
     homePage = new HomePage();
     navbar = new NavBar();
     homePage.navigateTo();

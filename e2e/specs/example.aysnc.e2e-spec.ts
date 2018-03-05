@@ -21,12 +21,11 @@ describe('End to end scenarios', () => {
     homePage = new HomePage();
     navbar = new NavBar();
     articleObject = new ArticleBuilder().build();
-    homePage.navigateTo();
+    await homePage.navigateTo();
 
     const signIn = await navbar.navigateToSignIn();
     await signIn.signIn(new UserBuilder().build());
-    editorPage = await navbar.navigateToCreateNewArticle();
-    articlePage = await editorPage.addArticle(articleObject);
+    
   });
 
   afterEach(async () => {
@@ -34,9 +33,14 @@ describe('End to end scenarios', () => {
     await settings.doLogout();
   });
 
-  it('should add article', async () => {
-    const content = await articlePage.getArticleContent()
-    expect(content).toContain(articleObject.ArticleBody);
+  fit('should add article', async () => {
+    editorPage = await navbar.navigateToCreateNewArticle();
+    articlePage = editorPage.addArticle(articleObject);
+
+    navbar.navigateToCreateNewArticle().then((articleContent) => {
+      expect(articleContent).toContain(articleObject.ArticleBody);
+    })
+    
   });
 
   it('should add comment to article', async () => {

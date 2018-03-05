@@ -17,7 +17,7 @@ export class NavBar {
         return new HomePage();
     }
 
-    async navigateToSignIn() {
+    async navigateToSignIn(): Promise<SignIn>{
         await browser.findElement(by.partialLinkText('Sign in')).click();
         return new SignIn();
     }
