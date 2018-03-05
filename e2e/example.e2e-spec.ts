@@ -1,12 +1,11 @@
-import { HomePage } from './page-objects/home-page.po';
-import { NavBar } from './page-objects/navbar.po';
-import { ArticlePage } from './page-objects/article-page.po';
-import { EditorPage } from './page-objects/editor-page.po';
+import { HomePage } from './page-objects/example/home-page.po';
+import { NavBar } from './page-objects/example/navbar.po';
+import { ArticlePage } from './page-objects/example/article-page.po';
+import { EditorPage } from './page-objects/example/editor-page.po';
 import { ArticleBuilder } from './models/article-builder';
 import { browser } from 'protractor';
 import { UserBuilder } from './models/user-builder';
-import { GlobalFeed } from './page-objects/global-feed.po';
-import { exec } from 'child_process';
+import { GlobalFeed } from './page-objects/example/global-feed.po';
 import { ArticleObject } from './models/article-object';
 
 
@@ -29,6 +28,15 @@ describe('example tests', () => {
   afterEach(() => {
     navbar.navigateToSettings().doLogout();
   });
+
+
+  it('should nagivate to create new article', () => {
+    editorPage = navbar.navigateToCreateNewArticle();
+    editorPage.articleTitleIsDisplayed().then((isDisplayed) => {
+      expect(isDisplayed).toBe(true);
+    });
+  });
+
 
   it('should add article', () => {
     editorPage = navbar.navigateToCreateNewArticle();

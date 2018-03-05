@@ -1,8 +1,7 @@
-import { browser, element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { element, by } from 'protractor';
+import { WaitConditions as WC } from '../../wait-conditions';
 import { HomePage } from './home-page.po';
 import { EditorPage } from './editor-page.po';
-import { ArticleBuilder } from '../models/article-builder';
 
 export class ArticlePage {
 
@@ -17,26 +16,28 @@ export class ArticlePage {
         WC.waitForElementToDisplay(element(by.className('article-page')));
     }
 
-    async deleteArticle(): Promise<HomePage> {
-        await this.deleteArticleButton.click();
+    deleteArticle(): HomePage {
+        this.deleteArticleButton.click();
         return new HomePage();
     }
 
-    async editArticle(): Promise<EditorPage> {
-        await this.editArticleButton.click();
+    editArticle(): EditorPage {
+        this.editArticleButton.click();
         return new EditorPage();
     }
 
-    async addComment(comment: string): Promise<ArticlePage> {
-        await this.commentField.sendKeys(comment);
-        await this.postComment.click();
+    getArticleContent() {
+        return this.articleContent.getText();
+    }
+
+    addComment(comment: string): ArticlePage {
+        this.commentField.sendKeys(comment);
+        this.postComment.click();
         return this;
     }
 
-    async getFirstComment() {
-        return await this.comments.first().getText();
+    getFirstComment() {
+        return this.comments.first().getText();
     }
-    async getArticleContent() {
-        return await this.articleContent.getText();
-    }
+
 }

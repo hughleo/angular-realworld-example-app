@@ -12,9 +12,9 @@ export class HomePage {
         return new HomePage();
     }
 
-    switchToYourFeed(): YourFeed  {
+    clickYourFeed<T>(c: { new(): T; }): T {
         this.yourFeed.click();
-        return new YourFeed();
+        return new c();
     }
 
     switchToGlobalFeed(): GlobalFeed  {

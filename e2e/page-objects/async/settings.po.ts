@@ -1,7 +1,7 @@
 import { element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
 import { HomePage } from './home-page.po';
-import { ElementWrapper } from '../wrappers/element-wrapper';
+import { ElementWrapper } from '../../wrappers/element-wrapper';
 
 export class Settings {
 

@@ -1,4 +1,4 @@
-import { ArticleObject } from './article-object';
+import { ArticleObject } from './../article-object';
 
 
 export class ArticleBuilder {
@@ -8,9 +8,10 @@ export class ArticleBuilder {
     private articleBody: string;
 
     constructor() {
-        this.articleTitle = 'test article';
-        this.articleDescription = 'test article description';
-        this.articleBody = 'article body';
+        const faker = require('faker');
+        this.articleTitle = faker.lorem.sentence();
+        this.articleDescription = faker.lorem.sentence();
+        this.articleBody = faker.lorem.paragraph();
     }
 
     build(): ArticleObject {

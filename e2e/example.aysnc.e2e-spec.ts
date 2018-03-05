@@ -1,12 +1,12 @@
-import { HomePage } from './async-page-objects/home-page.po';
-import { NavBar } from './async-page-objects/navbar.po';
-import { ArticlePage } from './async-page-objects/article-page.po';
-import { EditorPage } from './async-page-objects/editor-page.po';
+import { HomePage } from './page-objects/async/home-page.po';
+import { NavBar } from './page-objects/async/navbar.po';
+import { ArticlePage } from './page-objects/async/article-page.po';
+import { EditorPage } from './page-objects/async/editor-page.po';
 import { ArticleBuilder } from './models/article-builder';
 import { browser, element, by } from 'protractor';
 import { UserBuilder } from './models/user-builder';
 import { ElementWrapper } from './wrappers/element-wrapper';
-import { Settings } from './async-page-objects/settings.po';
+import { Settings } from './page-objects/async/settings.po';
 import { ArticleObject } from './models/article-object';
 
 
@@ -21,7 +21,7 @@ describe('End to end scenarios', () => {
     homePage = new HomePage();
     navbar = new NavBar();
     articleObject = new ArticleBuilder().build();
-    await homePage.navigateTo();
+    homePage.navigateTo();
 
     const signIn = await navbar.navigateToSignIn();
     await signIn.signIn(new UserBuilder().build());
@@ -34,8 +34,8 @@ describe('End to end scenarios', () => {
     await settings.doLogout();
   });
 
-  it('should add article', async () => {
-    const content = await articlePage.getArticleContent();
+  fit('should add article', async () => {
+    const content = await articlePage.getArticleContent()
     expect(content).toContain(articleObject.ArticleBody);
   });
 
@@ -47,7 +47,7 @@ describe('End to end scenarios', () => {
 
   it('should add then delete article', async () => {
     await articlePage.deleteArticle();
-    const globalFeed = await homePage.switchToGlobalFeed();
+    const globalFeed = await homePage.clickGlobalFeed();
     const articleDisplayed = await globalFeed.isArticleDisplayed(articleObject.ArticleTitle);
     expect(articleDisplayed).toBe(false);
   });

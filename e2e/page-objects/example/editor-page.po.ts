@@ -1,8 +1,8 @@
 import { element, by } from 'protractor';
-import { WaitConditions as WC } from '../wait-conditions';
+import { WaitConditions as WC } from '../../wait-conditions';
 import { ArticlePage } from './article-page.po';
-import { ArticleObject } from '../models/article-object';
-import { ElementWrapper } from '../wrappers/element-wrapper';
+import { ArticleObject } from '../../models/article-object';
+import { ElementWrapper } from '../../wrappers/element-wrapper';
 
 export class EditorPage {
 
@@ -13,6 +13,10 @@ export class EditorPage {
 
     constructor() {
         WC.waitForElementToDisplay(element(by.className('editor-page')));
+    }
+
+    articleTitleIsDisplayed() {
+        return this.articleTitle.isPresent();
     }
 
     addArticle(article: ArticleObject): ArticlePage {

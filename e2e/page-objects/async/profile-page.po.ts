@@ -1,5 +1,5 @@
 import { element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
 
 export class ProfilePage {
 

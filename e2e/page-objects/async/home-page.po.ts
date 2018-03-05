@@ -1,7 +1,8 @@
 import { browser, element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
-import { GlobalFeed } from '../page-objects/global-feed.po';
-import { YourFeed } from '../page-objects/your-feed.po';
+import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
+import { YourFeed } from './your-feed.po';
+import { GlobalFeed } from './global-feed.po';
+
 
 export class HomePage {
 
@@ -14,19 +15,13 @@ export class HomePage {
         return new HomePage();
     }
 
-
-    async switchFeed<T>(c: { new(): T; }): Promise<T>  {
+    async clickYourFeed<T>(c: { new(): T; }): Promise<T> {
         await this.yourFeed.click();
         return new c();
     }
 
-    async switchToYourFeed(): Promise<YourFeed> {
-        this.yourFeed.click();
-        return new YourFeed();
-    }
-
-    async switchToGlobalFeed(): Promise<GlobalFeed>  {
-        this.globalFeed.click();
+    async clickGlobalFeed(): Promise<GlobalFeed>  {
+        await this.globalFeed.click();
         return new GlobalFeed();
     }
 }

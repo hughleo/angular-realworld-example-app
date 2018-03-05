@@ -1,8 +1,8 @@
 import { element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
 import { HomePage } from './home-page.po';
-import { User } from '../models/user';
-import { ElementWrapper } from '../wrappers/element-wrapper';
+import { User } from '../../models/user';
+import { ElementWrapper } from '../../wrappers/element-wrapper';
 
 export class SignIn {
 

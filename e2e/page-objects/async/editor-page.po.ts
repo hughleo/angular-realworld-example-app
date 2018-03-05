@@ -1,25 +1,25 @@
 import { element, by } from 'protractor';
-import { WaitConditionsAsync as WC } from '../wait-conditions-aysnc';
+import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
 import { ArticlePage } from './article-page.po';
-import { ArticleObject } from '../models/article-object';
-import { ElementWrapper } from '../wrappers/element-wrapper';
+import { ArticleObject } from '../../models/article-object';
+import { ElementWrapper } from '../../wrappers/element-wrapper';
 
 export class EditorPage {
 
     private articleTitle = new ElementWrapper(element(by.name('title')));
     private articleDescription = new ElementWrapper(element(by.name('description')));
     private articleContent =  new ElementWrapper(element(by.name('body')));
-    private publishArticleButton = new ElementWrapper(element(by.partialButtonText('Publish Article')));
+    private publishArticleButton = element(by.partialButtonText('Publish Article'));
 
     constructor() {
         WC.waitForElementToDisplay(element(by.className('editor-page')));
     }
 
-    async addArticle(article: ArticleObject): Promise<ArticlePage> {
-        await this.articleTitle.sendKeys(article.ArticleTitle);
-        await this.articleDescription.sendKeys(article.ArticleDescription);
-        await this.articleContent.sendKeys(article.ArticleBody);
-        await this.publishArticleButton.click();
+    addArticle(article: ArticleObject): ArticlePage {
+        this.articleTitle.sendKeys(article.ArticleTitle);
+     this.articleDescription.sendKeys(article.ArticleDescription);
+        this.articleContent.sendKeys(article.ArticleBody);
+        this.publishArticleButton.click();
         return new ArticlePage();
     }
 

@@ -1,5 +1,4 @@
 import { User } from './user';
-import { PassThrough } from 'stream';
 import { browser } from 'protractor';
 
 export class UserBuilder {
@@ -8,8 +7,7 @@ export class UserBuilder {
     private password: string;
 
     constructor() {
-        this.email = browser.params.user.email;
-        this.password = browser.params.user.password;
+       this.default();
     }
 
     withEmail(email: string): UserBuilder {
@@ -19,6 +17,12 @@ export class UserBuilder {
 
     withPassword(password: string): UserBuilder {
         this.password = password;
+        return this;
+    }
+
+    default() : UserBuilder {
+        this.email = browser.params.user.email;
+        this.password = browser.params.user.password;
         return this;
     }
 
