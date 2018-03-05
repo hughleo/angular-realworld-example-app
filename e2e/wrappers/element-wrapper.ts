@@ -11,8 +11,4 @@ export class ElementWrapper extends ElementFinder {
     await browser.executeScript('arguments[0].click();', super.getWebElement());
   }
 
-  async clearAndSendKeys(keys: string) {
-    await super.getWebElement().clear();
-    await super.getWebElement().sendKeys(keys);
-  }
 }

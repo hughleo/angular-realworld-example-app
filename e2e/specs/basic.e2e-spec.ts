@@ -1,14 +1,14 @@
-import { HomePage } from './page-objects/basic/home-page.po';
-import { ArticlePage } from './page-objects/basic/article-page.po';
-import { EditorPage } from './page-objects/basic/editor-page.po';
-import { ArticleBuilder } from './models/article-builder';
+import { HomePage } from './../page-objects/basic/home-page.po';
+import { ArticlePage } from './../page-objects/basic/article-page.po';
+import { EditorPage } from './../page-objects/basic/editor-page.po';
+import { ArticleBuilder } from './../models/article-builder';
 import { browser } from 'protractor';
-import { UserBuilder } from './models/user-builder';
-import { GlobalFeed } from './page-objects/basic/global-feed.po';
-import { ArticleObject } from './models/article-object';
-import { NavBar } from './page-objects/basic/navbar.po';
-import { YourFeed } from './page-objects/basic/your-feed.po';
-import { SignIn } from './page-objects/basic/sign-in.po';
+import { UserBuilder } from './../models/user-builder';
+import { GlobalFeed } from './../page-objects/basic/global-feed.po';
+import { ArticleObject } from './../models/article-object';
+import { NavBar } from './../page-objects/basic/navbar.po';
+import { YourFeed } from './../page-objects/basic/your-feed.po';
+import { SignIn } from './../page-objects/basic/sign-in.po';
 
 describe('example tests', () => {
   let homePage: HomePage;
@@ -23,11 +23,8 @@ describe('example tests', () => {
   });
 
 
-  fit('should nagivate to create new article page', () => {
-
-
+  it('should nagivate to create new article page', () => {
     homePage = new HomePage();
-    debugger;
     const email = browser.params.user.email;
     const password = browser.params.user.password;
     

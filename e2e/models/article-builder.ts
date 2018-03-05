@@ -8,7 +8,7 @@ export class ArticleBuilder {
     private articleBody: string;
 
     constructor() {
-        this.articleTitle = 'test article';
+        this.articleTitle = 'test article' + Math.floor(Math.random() * 1000) + 1 ;
         this.articleDescription = 'test article description';
         this.articleBody = 'article body';
     }

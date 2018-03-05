@@ -1,12 +1,12 @@
-import { HomePage } from './page-objects/example/home-page.po';
-import { NavBar } from './page-objects/example/navbar.po';
-import { ArticlePage } from './page-objects/example/article-page.po';
-import { EditorPage } from './page-objects/example/editor-page.po';
-import { ArticleBuilder } from './models/article-builder';
+import { HomePage } from './../page-objects/add-method-and-test/home-page.po';
+import { NavBar } from './../page-objects/add-method-and-test/navbar.po';
+import { ArticlePage } from './../page-objects/add-method-and-test/article-page.po';
+import { EditorPage } from './../page-objects/add-method-and-test/editor-page.po';
+import { ArticleBuilder } from './../models/article-builder';
 import { browser } from 'protractor';
-import { UserBuilder } from './models/user-builder';
-import { GlobalFeed } from './page-objects/example/global-feed.po';
-import { ArticleObject } from './models/article-object';
+import { UserBuilder } from './../models/user-builder';
+import { GlobalFeed } from './../page-objects/add-method-and-test/global-feed.po';
+import { ArticleObject } from './../models/article-object';
 
 
 describe('example tests', () => {
@@ -55,7 +55,7 @@ describe('example tests', () => {
     });
   });
 
-  it('should add then delete article', () => {
+  fit('should add then delete article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
     articlePage = editorPage.addArticle(articleObject);
     articlePage.deleteArticle();

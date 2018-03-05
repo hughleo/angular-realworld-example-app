@@ -16,11 +16,6 @@ export class ArticlePage {
         WC.waitForElementToDisplay(element(by.className('article-page')));
     }
 
-    deleteArticle(): HomePage {
-        this.deleteArticleButton.click();
-        return new HomePage();
-    }
-
     editArticle(): EditorPage {
         this.editArticleButton.click();
         return new EditorPage();

@@ -17,7 +17,7 @@ export class EditorPage {
 
     addArticle(article: ArticleObject): ArticlePage {
         this.articleTitle.sendKeys(article.ArticleTitle);
-     this.articleDescription.sendKeys(article.ArticleDescription);
+        this.articleDescription.sendKeys(article.ArticleDescription);
         this.articleContent.sendKeys(article.ArticleBody);
         this.publishArticleButton.click();
         return new ArticlePage();
