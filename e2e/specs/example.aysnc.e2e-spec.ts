@@ -25,6 +25,7 @@ describe('End to end scenarios', () => {
 
     const signIn = await navbar.navigateToSignIn();
     await signIn.signIn(new UserBuilder().build());
+    await browser.sleep(5000);
     
   });
 

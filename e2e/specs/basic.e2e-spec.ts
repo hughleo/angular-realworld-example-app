@@ -23,16 +23,13 @@ describe('example tests', () => {
   });
 
 
-  fit('should nagivate to create new article page', () => {
+  it('should nagivate to create new article page with logs', () => {
     homePage = new HomePage();
+    navbar = new NavBar();
+    homePage.navigateTo();
     const email = browser.params.user.email;
     const password = browser.params.user.password;
-    console.log('test 1');
-    navbar = new NavBar();
-    console.log('test 2');
-    homePage.navigateTo();
     navbar.navigateToSignIn().signInWith(email, password);
-    console.log('test 3');
     editorPage = navbar.navigateToCreateNewArticle();
   });
 

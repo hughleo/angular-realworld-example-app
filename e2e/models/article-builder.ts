@@ -8,9 +8,10 @@ export class ArticleBuilder {
     private articleBody: string;
 
     constructor() {
-        this.articleTitle = 'test article' + Math.floor(Math.random() * 1000) + 1 ;
-        this.articleDescription = 'test article description';
-        this.articleBody = 'article body';
+        const faker = require('faker');
+        this.articleTitle = faker.lorem.sentence();
+        this.articleDescription = faker.lorem.sentence();
+        this.articleBody = faker.lorem.paragraph();
     }
 
     build(): ArticleObject {

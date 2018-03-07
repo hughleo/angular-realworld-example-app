@@ -7,7 +7,8 @@ export class UserBuilder {
     private password: string;
 
     constructor() {
-       this.default();
+        this.email = browser.params.user.email;
+        this.password = browser.params.user.password;
     }
 
     withEmail(email: string): UserBuilder {
@@ -19,13 +20,7 @@ export class UserBuilder {
         this.password = password;
         return this;
     }
-
-    default() : UserBuilder {
-        this.email = browser.params.user.email;
-        this.password = browser.params.user.password;
-        return this;
-    }
-
+    
     build(): User {
         return new User(this.email, this.password);
     }

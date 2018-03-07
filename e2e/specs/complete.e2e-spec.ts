@@ -1,15 +1,15 @@
-import { HomePage } from './../page-objects/promise/home-page.po';
-import { NavBar } from './../page-objects/promise/navbar.po';
-import { ArticlePage } from './../page-objects/promise/article-page.po';
-import { EditorPage } from './../page-objects/promise/editor-page.po';
+import { HomePage } from './../page-objects/complete/home-page.po';
+import { NavBar } from './../page-objects/complete/navbar.po';
+import { ArticlePage } from './../page-objects/complete/article-page.po';
+import { EditorPage } from './../page-objects/complete/editor-page.po';
 import { ArticleBuilder } from './../models/article-builder';
 import { browser } from 'protractor';
 import { UserBuilder } from './../models/user-builder';
-import { GlobalFeed } from './../page-objects/promise/global-feed.po';
+import { GlobalFeed } from './../page-objects/complete/global-feed.po';
 import { ArticleObject } from './../models/article-object';
 
 
-describe('example tests', () => {
+describe('complete tests', () => {
   let homePage: HomePage;
   let navbar: NavBar;
   let editorPage: EditorPage;
@@ -40,7 +40,7 @@ describe('example tests', () => {
 
   it('should add article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
- //   articlePage = editorPage.addArticle(articleObject);
+    articlePage = editorPage.addArticle(articleObject);
     articlePage.getArticleContent().then((articleContent) => {
       expect(articleContent).toContain(articleObject.ArticleBody);
     });
@@ -48,7 +48,7 @@ describe('example tests', () => {
 
   it('should add comment to article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
-  //  articlePage = editorPage.addArticle(articleObject);
+    articlePage = editorPage.addArticle(articleObject);
     articlePage.addComment('awesome article');
     articlePage.getFirstComment().then((comment) => {
       expect(comment.trim()).toBe('awesome article');
@@ -57,8 +57,8 @@ describe('example tests', () => {
 
   it('should add then delete article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
-    // articlePage = editorPage.addArticle(articleObject);
-    // articlePage.deleteArticle();
+    articlePage = editorPage.addArticle(articleObject);
+    articlePage.deleteArticle();
     globalFeed = homePage.switchToGlobalFeed();
     globalFeed.isArticleDisplayed(articleObject.ArticleTitle).then((isDisplayed) => {
       expect(isDisplayed).toBe(false);
@@ -67,10 +67,11 @@ describe('example tests', () => {
 
   it('should add then edit article', () => {
     editorPage = navbar.navigateToCreateNewArticle();
-    // articlePage = editorPage.addArticle(articleObject);
-    // articlePage.editArticle();
-    // editorPage.updateArticleContent('newText');
-    // editorPage.publishArticle();
+    articlePage = editorPage.addArticle(articleObject);
+    articlePage.editArticle();
+    editorPage.updateArticleContent('newText');
+    editorPage.publishArticle();
+    browser.sleep(5000);
     articlePage.getArticleContent().then((articleContent) => {
       expect(articleContent).toContain('newText');
     });
