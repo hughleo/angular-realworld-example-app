@@ -37,7 +37,7 @@ describe('example tests', () => {
     homePage = new HomePage();
     navbar = new NavBar();
     homePage.navigateTo();
-    navbar.navigateToSignIn().signIn(new UserBuilder().default().build());
+    navbar.navigateToSignIn().signIn(new UserBuilder().build());
     editorPage = navbar.navigateToCreateNewArticle();
     editorPage.articleTitleIsDisplayed().then((isDisplayed) => {
       expect(isDisplayed).toBe(true);

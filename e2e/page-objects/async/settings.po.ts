@@ -12,7 +12,7 @@ export class Settings {
     }
 
     async doLogout(): Promise<HomePage> {
-        await this.logout.jsClick();
+        await this.logout.click();
         return new HomePage();
     }
 }

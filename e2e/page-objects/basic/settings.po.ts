@@ -12,7 +12,7 @@ export class Settings {
     }
 
     doLogout(): HomePage {
-        this.logout.jsClick();
+        this.logout.click();
         return new HomePage();
     }
 }
