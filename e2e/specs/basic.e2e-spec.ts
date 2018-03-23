@@ -22,18 +22,7 @@ describe('example tests', () => {
     navbar.navigateToSettings().doLogout();
   });
 
-
-  it('should nagivate to create new article page with logs', () => {
-    homePage = new HomePage();
-    navbar = new NavBar();
-    homePage.navigateTo();
-    const email = browser.params.user.email;
-    const password = browser.params.user.password;
-    navbar.navigateToSignIn().signInWith(email, password);
-    editorPage = navbar.navigateToCreateNewArticle();
-  });
-
-  it('should nagivate to create new article using user builder', () => {
+  fit('should nagivate to create new article page', () => {
     homePage = new HomePage();
     navbar = new NavBar();
     homePage.navigateTo();
