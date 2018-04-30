@@ -23,13 +23,13 @@ export class EditorPage {
         return new ArticlePage();
     }
 
-    async updateArticleContent(articleContent: string): Promise<EditorPage> {
-        await this.articleContent.clearAndSendKeys(articleContent);
+    updateArticleContent(articleContent: string): EditorPage {
+        this.articleContent.sendKeys(articleContent);
         return this;
     }
 
-    async publishArticle(): Promise<ArticlePage> {
-        await this.publishArticleButton.click();
+    publishArticle(): ArticlePage{
+        this.publishArticleButton.click();
         return new ArticlePage();
     }
 }
