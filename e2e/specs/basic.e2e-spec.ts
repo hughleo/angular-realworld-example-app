@@ -33,4 +33,16 @@ describe('example tests', () => {
     });
   });
 
+  it('should add article', () => {
+
+  });
+
+  it('should add comment to article', () => {
+    
+  });
+
+  xit('should add then delete article', () => {
+
+  });
+
 });

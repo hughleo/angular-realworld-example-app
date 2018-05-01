@@ -16,11 +16,6 @@ export class ArticlePage {
         WC.waitForElementToDisplay(element(by.className('article-page')));
     }
 
-    async deleteArticle(): Promise<HomePage> {
-        await this.deleteArticleButton.click();
-        return new HomePage();
-    }
-
     async editArticle(): Promise<EditorPage> {
         await this.editArticleButton.click();
         return new EditorPage();

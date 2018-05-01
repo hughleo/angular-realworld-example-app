@@ -1,4 +1,4 @@
-import { element, by } from 'protractor';
+import { element, by, browser } from 'protractor';
 import { WaitConditionsAsync as WC } from '../../wait-conditions-aysnc';
 import { ArticlePage } from './article-page.po';
 import { ArticleObject } from '../../models/article-object';
