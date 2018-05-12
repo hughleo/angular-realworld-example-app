@@ -22,8 +22,8 @@ export class NavBar {
         return new SignIn();
     }
 
-    async navigateToCreateNewArticle(): Promise<EditorPage> {
-        await this.newArticle.click();
+    navigateToCreateNewArticle(): EditorPage {
+        this.newArticle.click();
         return new EditorPage();
     }
 

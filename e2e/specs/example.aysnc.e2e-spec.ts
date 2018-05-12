@@ -30,16 +30,13 @@ describe('End to end scenarios', () => {
 
   afterEach(async () => {
     const settings = await navbar.navigateToSettings();
-    await settings.doLogout();
+    settings.doLogout();
   });
 
   fit('should add article', async () => {
-    editorPage = await navbar.navigateToCreateNewArticle();
+    editorPage = navbar.navigateToCreateNewArticle();
     articlePage = editorPage.addArticle(articleObject);
 
-    navbar.navigateToCreateNewArticle().then((articleContent) => {
-      expect(articleContent).toContain(articleObject.ArticleBody);
-    })
     
   });
 
