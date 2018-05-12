@@ -8,7 +8,7 @@ import { UserBuilder } from './../models/user-builder';
 import { ElementWrapper } from './../wrappers/element-wrapper';
 import { Settings } from './../page-objects/async/settings.po';
 import { ArticleObject } from './../models/article-object';
-
+const faker = require('faker');
 
 describe('End to end scenarios', () => {
    let homePage: HomePage;
@@ -16,6 +16,7 @@ describe('End to end scenarios', () => {
    let articleObject: ArticleObject;
    let articlePage: ArticlePage;
    let editorPage: EditorPage;
+ 
 
   beforeEach(async () => {
     homePage = new HomePage();
@@ -35,7 +36,7 @@ describe('End to end scenarios', () => {
 
   fit('should add article', async () => {
     editorPage = navbar.navigateToCreateNewArticle();
-    articlePage = editorPage.addArticle(articleObject);
+    articlePage = editorPage.addArticle(faker.lorem.sentence(), 'test', 'test');
 
     
   });

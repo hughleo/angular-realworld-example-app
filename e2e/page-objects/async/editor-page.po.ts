@@ -15,10 +15,10 @@ export class EditorPage {
         WC.waitForElementToDisplay(element(by.className('editor-page')));
     }
 
-    addArticle(article: ArticleObject): ArticlePage {
-        this.articleTitle.sendKeys(article.ArticleTitle);
-        this.articleDescription.sendKeys(article.ArticleDescription);
-        this.articleContent.sendKeys(article.ArticleBody);
+    addArticle(articleTitle: string, articleDescription: string, articleContent: string): ArticlePage {
+        this.articleTitle.sendKeys(articleTitle);
+        this.articleDescription.sendKeys(articleDescription);
+        this.articleContent.sendKeys(articleContent);
         this.publishArticleButton.click();
         return new ArticlePage();
     }

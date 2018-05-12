@@ -9,6 +9,7 @@ import { ArticleObject } from './../models/article-object';
 import { NavBar } from './../page-objects/basic/navbar.po';
 import { YourFeed } from './../page-objects/basic/your-feed.po';
 import { SignIn } from './../page-objects/basic/sign-in.po';
+const faker = require('faker');
 
 describe('example tests', () => {
   let homePage: HomePage;
@@ -17,7 +18,6 @@ describe('example tests', () => {
   let articlePage: ArticlePage;
   let globalFeed: GlobalFeed;
   let articleObject: ArticleObject;
-  const faker = require('faker');
 
   afterEach(() => {
     navbar.navigateToSettings().doLogout();
