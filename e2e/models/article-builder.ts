@@ -14,6 +14,21 @@ export class ArticleBuilder {
         this.articleBody = faker.lorem.paragraph();
     }
 
+    withArticleTitle(articleTitle: string): ArticleBuilder {
+        this.articleTitle = articleTitle;
+        return this;
+    }
+
+    withArticleDescription(articleDescription: string): ArticleBuilder {
+        this.articleDescription = articleDescription;
+        return this;
+    }
+
+    withArticleBody(articleBody: string): ArticleBuilder {
+        this.articleBody = articleBody;
+        return this;
+    }
+    
     build(): ArticleObject {
         return new ArticleObject(this.articleTitle, this.articleDescription, this.articleBody);
     }
