@@ -17,6 +17,7 @@ describe('example tests', () => {
   let articlePage: ArticlePage;
   let globalFeed: GlobalFeed;
   let articleObject: ArticleObject;
+  const faker = require('faker');
 
   afterEach(() => {
     navbar.navigateToSettings().doLogout();
